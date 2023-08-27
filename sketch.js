@@ -13,6 +13,8 @@ function preload() {
   track = loadImage("../assets/track.jpg");
   fuelImage = loadImage("./assets/fuel.png");
   powerCoinImage = loadImage("./assets/coin.png");
+  lifeImage = loadImage("/assets/life.png");
+  
 }
 
 
@@ -35,6 +37,11 @@ function draw() {
   if (gameState === 1) {
     game.play();
   }
+  if (gameState === 2) {
+    game.showleaderBoard();
+
+  }
+
 }
 
 function windowResized() {

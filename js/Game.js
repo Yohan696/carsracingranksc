@@ -5,7 +5,7 @@ class Game {
     this.leadeboardTitle = createElement("h2");
     this.leader1 = createElement("h2");
     this.leader2 = createElement("h2");
-  
+    this.playermoving = false;
   }
 
   getState() {
@@ -73,7 +73,7 @@ class Game {
 
     this.resetButton.class("resetButton");
     this.resetButton.position(width / 2 + 400, 10);
-
+    
     this.leadeboardTitle.html("Leaderboard");
     this.leadeboardTitle.class("resetText");
     this.leadeboardTitle.position(width / 3 - 60, 40);
@@ -122,11 +122,19 @@ class Game {
         }
       }
 
-      // handling keyboard events
-   /*   if (keyIsDown(UP_ARROW)) {
+      //giving AI to the car movement
+      if (this.playermoving && player.positionY < finishline)
+      {
         player.positionY += 10;
         player.update();
-      } */
+      }
+
+
+      // handling keyboard events
+    if (keyIsDown(UP_ARROW)) {
+        player.positionY += 10;
+              player.update();
+      } 
       this.handlePlayerControls();
 
       const finishline= height*6 - 200;
@@ -136,6 +144,7 @@ class Game {
         Player.updatecarsAtEnd(player.rank);
         player.update();
         this.showrank(); 
+        this.gameOver();
       }
 
       drawSprites();
@@ -146,10 +155,31 @@ class Game {
     // Adding fuel
     cars[index - 1].overlap(fuels, function(collector, collected) {
       player.fuel = 185;
+      if (this.playermoving && player.fuel >0)
+      {
+        player.fuel -= 1;
+
+      }
+      if (player.fuel <= 0)
+      {
+        gameState = 2;
+        gameOver();
+      }
       //collected is the sprite in the group collectibles that triggered
       //the event
       collected.remove();
     });
+  }
+
+  showFuel ()
+  {
+    push ();
+    image (fuelImage, width / 2 - 100, 50);
+    fill("white");
+    rect (width/2 + 120, 50, 80, 20);
+    fill ("green");
+    rect (width/2 + 120, 50, player.fuel, 20);    
+    pop ();
   }
 
   handlePowerCoins(index) {
@@ -160,6 +190,17 @@ class Game {
       //the event
       collected.remove();
     });
+  }
+
+  showLife()
+  {
+    push ();
+    image (Lifeimage, width / 2 - 100, 15);
+    fill("white");
+    rect (width/2 + 120, 20, 80, 15);
+    fill ("red");
+    rect (width/2 +120, 20, player.life, 15);    
+    pop ();
   }
 
 handleResetButton() {
@@ -211,12 +252,8 @@ showLeaderboard() {
   this.leader1.html(leader1);
   this.leader2.html(leader2);
 }
-handlePlayerControls() {
-  if (keyIsDown(UP_ARROW)) {
-    player.positionY += 10;
-    player.update();
-  }
-
+handlePlayerControls() 
+{
   if (keyIsDown(LEFT_ARROW) && player.positionX > width / 3 - 50) {
     player.positionX -= 5;
     player.update();
@@ -226,6 +263,7 @@ handlePlayerControls() {
     player.positionX += 5;
     player.update();
   }
+
 }
   showrank() {
     swal ({
@@ -236,7 +274,15 @@ handlePlayerControls() {
       confirmButtonText:"OK"
     })    
    }
-   
-
-
-}
+gameOver()
+ {
+  swal ({
+    title:"GAME OVER!!",
+      text:"Hope you enjoyed the game!!",
+      imageUrl:"https://www.cleanpng.com/png-racing-games-free-car-racing-video-game-computer-i-826199/",
+      imageSize:"50,50",
+      confirmButtonText:"PLAY AGAIN"
+  })
+ }
+} 
+  

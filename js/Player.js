@@ -73,6 +73,8 @@ class Player {
       carsAtEnd: rank
     });
   }
+
+  
   
   static getPlayersInfo() {
     var playerInfoRef = database.ref("players");
