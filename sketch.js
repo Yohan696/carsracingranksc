@@ -12,9 +12,8 @@ function preload() {
   car2_img = loadImage("../assets/car2.png");
   track = loadImage("../assets/track.jpg");
   fuelImage = loadImage("./assets/fuel.png");
-  powerCoinImage = loadImage("./assets/coin.png");
+  powerCoinImage = loadImage("./assets/goldCoin.png");
   lifeImage = loadImage("/assets/life.png");
-  
 }
 
 
@@ -38,10 +37,9 @@ function draw() {
     game.play();
   }
   if (gameState === 2) {
-    game.showleaderBoard();
-
+    game.showLeaderboard();
+    game.gameOver();
   }
-
 }
 
 function windowResized() {

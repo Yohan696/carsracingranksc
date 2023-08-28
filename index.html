@@ -9,25 +9,34 @@
     <script src="./lib/p5.sound.min.js"></script>
     <script src="./lib/p5.play.js"></script>
 
+     <!----Sweet Alert c40--->
+     <script
+     src="https://code.jquery.com/jquery-3.5.1.min.js"
+     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+     crossorigin="anonymous">
+     </script>
+     <script src="./lib/sweetalert.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="./lib/sweetalert.css"/>
+
     <link rel="stylesheet" href="style.css" />
 
-    
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
-
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
 <script>
   // Your web app's Firebase configuration
-  var firebaseConfig = {    
-  apiKey: "AIzaSyCIdf-LH525Mc6mqrbvOy5U8KWSv_cz2S0",
-  authDomain: "mplayercar-dc3e0.firebaseapp.com",
-  databaseURL: "https://mplayercar-dc3e0-default-rtdb.firebaseio.com",
-  projectId: "mplayercar-dc3e0",
-  storageBucket: "mplayercar-dc3e0.appspot.com",
-  messagingSenderId: "304279166320",
-  appId: "1:304279166320:web:1a6145dc8a1df6b9c903b5"
+  var firebaseConfig = {
+    apiKey: "AIzaSyAuH9FXI31FS185XcBm5kpPcZyfezUW3C8",
+    authDomain: "cargame-81028.firebaseapp.com",
+    databaseURL: "https://cargame-81028-default-rtdb.firebaseio.com",
+    projectId: "cargame-81028",
+    storageBucket: "cargame-81028.appspot.com",
+    messagingSenderId: "999267376733",
+    appId: "1:999267376733:web:99c01b63caf22333bf37b4"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

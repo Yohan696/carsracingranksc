@@ -5,7 +5,7 @@ body.stop-scrolling {
 .sweet-overlay {
   background-color: black;
   /* IE8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+ /* -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";  */
   /* IE8 */
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -70,12 +70,12 @@ body.stop-scrolling {
     overflow: hidden;
     padding: 0 10px;
     max-height: 0;
-    webkit-transition: padding 0.15s, max-height 0.15s;
+  /*  webkit-transition: padding 0.15s, max-height 0.15s; */
     transition: padding 0.15s, max-height 0.15s; }
     .sweet-alert .sa-error-container.show {
       padding: 10px 0;
       max-height: 100px;
-      webkit-transition: padding 0.2s, max-height 0.2s;
+   /*  webkit-transition: padding 0.2s, max-height 0.2s; */
       transition: padding 0.25s, max-height 0.25s; }
     .sweet-alert .sa-error-container .icon {
       display: inline-block;
@@ -730,6 +730,7 @@ body.stop-scrolling {
 /* The icons are not animated. */
 /* This file is automatically merged into sweet-alert.min.js through Gulp */
 /* Error icon */
+/*
 .sweet-alert .sa-icon.sa-error .sa-line.sa-left {
   -ms-transform: rotate(45deg) \9; }
 
@@ -737,7 +738,7 @@ body.stop-scrolling {
   -ms-transform: rotate(-45deg) \9; }
 
 /* Success icon */
-.sweet-alert .sa-icon.sa-success {
+/*.sweet-alert .sa-icon.sa-success {
   border-color: transparent\9; }
 
 .sweet-alert .sa-icon.sa-success .sa-line.sa-tip {
